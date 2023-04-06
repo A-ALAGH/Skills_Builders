@@ -1,13 +1,17 @@
-import { Button, ButtonGroup } from '@chakra-ui/react'
-// function App () {
-//   return (<div><ul className="list-group">
-//   <li className="list-group-item">An item</li>
-//   <li className="list-group-item">A second item</li>
-//   <li className="list-group-item">A third item</li>
-//   <li className="list-group-item">A fourth item</li>
-//   <li className="list-group-item">And a fifth one</li>
-// </ul></div>);
-// }
+import { Grid, GridItem } from '@chakra-ui/react'
+import { Show, Hide } from '@chakra-ui/react'
+
+
 function App() {
-  return <Button colorScheme='blue'>Button</Button>;}
+  return <Grid templateAreas={{
+    base:`"nav" "main"`,
+    lg:`"nav nav" "aside main"`
+  }}>
+    <GridItem area='nav' bg='coral'>Nav</GridItem>
+    <Show above="lg">
+    <GridItem area='aside' bg='gold'>Aside</GridItem>
+    </Show>
+    <GridItem area='main' bg='dodgerblue'>Main</GridItem>    
+    </Grid>
+}
 export default App
